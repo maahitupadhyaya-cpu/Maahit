@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: latexify-api
+    runtime: python
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT --workers 2 --timeout-keep-alive 30
+    healthCheckPath: /api/health
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11.9"
+      - key: ALLOWED_ORIGINS
+        value: "*"
+
+  - type: web
+    name: latexify-web
+    runtime: node
+    rootDir: frontend
+    buildCommand: npm ci && npm run build
+    startCommand: npx next start -H 0.0.0.0 -p $PORT
+    healthCheckPath: /
+    envVars:
+      - key: NODE_VERSION
+        value: "20.18.0"
+      - key: BACKEND_URL
+        fromService:
+          name: latexify-api
+          type: web
+          envVarKey: RENDER_EXTERNAL_URL

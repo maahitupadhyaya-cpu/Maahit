@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  background-color: #f5f6fa;
+  color: #161a2b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: #cfd4e4;
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #a9b1cc;
+}
+
+.katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.25rem 0;
+}
+
+.scroll-thin {
+  scrollbar-width: thin;
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.55; }
+}
+.animate-pulse-soft {
+  animation: pulse-soft 1.4s ease-in-out infinite;
+}
+
+.landing-hero {
+  background-image:
+    radial-gradient(ellipse 80% 60% at 10% -10%, rgba(99, 102, 241, 0.14), transparent 50%),
+    radial-gradient(ellipse 50% 40% at 90% 10%, rgba(249, 115, 22, 0.08), transparent 45%),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.4), transparent);
+}

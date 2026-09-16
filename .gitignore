@@ -1,0 +1,15 @@
+.DS_Store
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+node_modules/
+.next/
+out/
+.env
+.env*.local
+npm-debug.log*
+.cursor/
+*.egg-info/
+tsconfig.tsbuildinfo
