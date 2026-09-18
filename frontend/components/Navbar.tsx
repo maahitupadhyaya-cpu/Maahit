@@ -39,6 +39,9 @@ function NavbarInner() {
           <NavLink href="/" active={pathname === "/"}>
             Home
           </NavLink>
+          <NavLink href="/about" active={pathname === "/about"}>
+            About
+          </NavLink>
           {CATEGORIES.map((c) => (
             <NavLink
               key={c.id}
@@ -83,6 +86,9 @@ function NavbarInner() {
         <div className="lg:hidden border-t border-ink-100 bg-white px-4 py-3 space-y-1 shadow-panel">
           <MobileLink href="/" active={pathname === "/"} onClick={close}>
             Home
+          </MobileLink>
+          <MobileLink href="/about" active={pathname === "/about"} onClick={close}>
+            About
           </MobileLink>
           {CATEGORIES.map((c) => (
             <MobileLink

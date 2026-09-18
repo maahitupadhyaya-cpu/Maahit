@@ -48,3 +48,71 @@ body {
     radial-gradient(ellipse 50% 40% at 90% 10%, rgba(249, 115, 22, 0.08), transparent 45%),
     linear-gradient(to bottom, rgba(255, 255, 255, 0.4), transparent);
 }
+
+.math-symbol {
+  position: absolute;
+  color: rgba(79, 70, 229, 0.11);
+  will-change: transform;
+}
+
+.math-symbol-float {
+  animation-name: math-float;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.math-symbol-drift {
+  animation-name: math-drift;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.math-symbol-spin {
+  animation-name: math-spin-float;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes math-float {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(-4deg); }
+  50% { transform: translate3d(14px, -22px, 0) rotate(8deg); }
+}
+
+@keyframes math-drift {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(6deg); }
+  50% { transform: translate3d(-18px, 16px, 0) rotate(-7deg); }
+}
+
+@keyframes math-spin-float {
+  0% { transform: translate3d(0, 0, 0) rotate(0deg); }
+  50% { transform: translate3d(8px, -14px, 0) rotate(180deg); }
+  100% { transform: translate3d(0, 0, 0) rotate(360deg); }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.7s ease-out both;
+}
+
+.founder-mark {
+  animation: none !important;
+  transform: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .math-symbol-float,
+  .math-symbol-drift,
+  .math-symbol-spin,
+  .animate-fade-up {
+    animation: none;
+  }
+
+  .founder-mark {
+    animation: none !important;
+    transform: none !important;
+  }
+}

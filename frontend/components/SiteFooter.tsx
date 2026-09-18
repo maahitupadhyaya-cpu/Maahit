@@ -10,10 +10,14 @@ export function SiteFooter() {
           <p className="mt-1 text-xs text-ink-500 max-w-sm">
             Enter a problem, then solve, explain, LaTeXify, visualize, and export.
           </p>
+          <p className="mt-3 text-xs text-ink-400">Created by Maahit Upadhyaya</p>
         </div>
         <nav className="flex flex-wrap gap-x-4 gap-y-2 text-xs text-ink-500">
           <Link href="/" className="hover:text-accent-700">
             Home
+          </Link>
+          <Link href="/about" className="hover:text-accent-700">
+            About
           </Link>
           {CATEGORIES.map((c) => (
             <Link key={c.id} href={solveHref(c.id)} className="hover:text-accent-700">
